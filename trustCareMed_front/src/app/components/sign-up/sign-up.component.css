@@ -1,6 +1,10 @@
 .cover{
     height: 100%;
-    background-image: url("./img/v870-mynt-05.jpg");
+   
+    
+
+
+     background: #9fa9b4 ;
 }
 
 .send-button{
@@ -77,6 +81,11 @@
     }
     }
 
-.form-sec{ background:#ccc; height: 85vh;
+.form-sec{
+  
+    background-image: url("./img/v870-mynt-05.jpg") ;
+     height: 85vh;
+    
     width: 50%;
-        background: #f8f9fa;padding: 1px;box-shadow: 0 0 4px #ccc;}
+    border-radius:  20% 0%;
+padding: 1px;box-shadow: 0 0 4px #ccc;}
