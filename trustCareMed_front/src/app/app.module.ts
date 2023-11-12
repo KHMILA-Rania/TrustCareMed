@@ -6,19 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 
-NgModule({
+@NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    FooterComponent,
     SignUpComponent,
-    NavbarComponent
+    FooterComponent,
+    NavbarComponent,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
