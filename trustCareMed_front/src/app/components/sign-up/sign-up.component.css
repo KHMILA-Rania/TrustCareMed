@@ -4,11 +4,11 @@
     
 
 
-     background: #9fa9b4 ;
+     
 }
 
 .send-button{
-    background: #54C7C3;
+    background: #48cead;
     width:100%;
     font-weight: 600;
     color:#fff;
@@ -84,7 +84,7 @@
 .form-sec{
   
     background-image: url("./img/v870-mynt-05.jpg") ;
-     height: 85vh;
+     height: 90vh;
     
     width: 50%;
     border-radius:  20% 0%;
