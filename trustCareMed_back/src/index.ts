@@ -7,13 +7,14 @@ import "./db/data-source";
 import cors from "cors";
 import express from "express";
 import bodyParser from "body-parser";
-import * as testService from "./services/test";
+import { createPatient, deletePatient, login, loginPatient, updatePatient } from "./services/PatientService";
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const port=3000;
-app.use(express.json());
+app.use(express.json())
+
 
 //security config 
 app.use((req: any, res: any, next: any) => {
@@ -26,18 +27,16 @@ app.use((req: any, res: any, next: any) => {
     next();
   });
 
-app.post('/api/test',async(req: Request, res: Response) =>{
-    try{
-        const {id}=req.body;
-        const newTest=await testService.createTest(id);
-        res.json(newTest);
-    } catch(err){
-        console.error(err);
-        res.status(500).json({error:'internal server error'});
-    }
-});
+// patient crude
+  app.post('/createPatient',createPatient);
+  app.post('/login',login);
+  app.put('/updatePatient',updatePatient);
+  app.post('/deletePatient' ,deletePatient);
 
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`);
+
+  // postman connect
+
+app.listen(3000, () => {
+    console.log("Server is running on port 3000");
   });
