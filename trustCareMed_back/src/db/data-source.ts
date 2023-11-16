@@ -1,6 +1,7 @@
 import "reflect-metadata"
 import { DataSource } from "typeorm"
 import  Doctor  from "../entity/Doctor"
+import Patient from "../entity/Patient";
 
 const AppDataSource = new DataSource({
     type: "postgres",
@@ -11,7 +12,7 @@ const AppDataSource = new DataSource({
     database: "mydb",
     synchronize: true,
     logging: true,
-    entities: [Doctor],
+    entities: [Doctor,Patient],
     migrations: [],
     subscribers: [],
 })

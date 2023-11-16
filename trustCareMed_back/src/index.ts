@@ -7,7 +7,7 @@ import "./db/data-source";
 import cors from "cors";
 import express from "express";
 import bodyParser from "body-parser";
-import * as testService from "./services/test";
+import { createDoctor, deleteDoctor, findDoctor, getDoctors, updateDoctor } from "./services/doctorService";
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,16 +26,12 @@ app.use((req: any, res: any, next: any) => {
     next();
   });
 
-app.post('/api/test',async(req: Request, res: Response) =>{
-    try{
-        const {id}=req.body;
-        const newTest=await testService.createTest(id);
-        res.json(newTest);
-    } catch(err){
-        console.error(err);
-        res.status(500).json({error:'internal server error'});
-    }
-});
+
+app.post('/createDoctor',createDoctor);
+app.get('/getDoctor',getDoctors);
+app.get('/findDoctor/:id',findDoctor);
+app.post('/updateDoctor',updateDoctor);
+app.delete('/deleteDoctor',deleteDoctor);
 
 
 app.listen(port, () => {

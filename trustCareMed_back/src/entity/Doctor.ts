@@ -31,6 +31,12 @@ class  Doctor  {
   
    @Column()
    dateOfBirth:string
+
+   @Column()
+   role:string
+
+   @Column()
+   password:string
     
 }
 export default Doctor;
