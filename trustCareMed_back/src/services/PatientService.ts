@@ -4,15 +4,26 @@ import DataSource from "../db/data-source";
 import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import ResponseModels from "../entity/ResponseModels";
+import  getRepository  from 'typeorm';
+
 
 const patientRepository=DataSource.getRepository(Patient);
 
 //create
 export async function createPatient (req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
     const { name, adress, email, password, role, phone, cin, dateOfBirth} = req.body;
+    
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds, you can adjust it based on your needs
   
+
     try {
-      const patient = patientRepository.create({ name, adress, email, password, role, phone, cin, dateOfBirth });
+      // Hash the password
+      const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds, you can adjust it based on your needs
+  
+
+      
+      const patient = patientRepository.create({ name, adress, email, password :hashedPassword, role, phone, cin, dateOfBirth });
   
       await patientRepository.save(patient);
   
@@ -21,7 +32,7 @@ export async function createPatient (req: Request, res: Response): Promise<Respo
       console.error(err);
       return res.status(500).json({ error: "something went wrong !", status: 500, route: "/create" });
     }
-  };
+  }
 
   
 
@@ -32,84 +43,36 @@ export function generateAuthToken(patient: Patient): string {
     return token;
 }
 
-//logiin
-
-export async function loginPatient(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
-    try {
-        const { email, password } = req.body;
-
-        const patient = await patientRepository.findOne({  where: { email } });
-
-        if (!patient) {
-            console.log("invalid");
-            return res.status(401).json({ error: 'Invalid credentials' });
-           
-        }
-
-        const isPasswordValid = await bcrypt.compare(password, patient.password);
-
-        if (!isPasswordValid) {
-            console.log("invalid");
-            return res.status(401).json({ error: 'Invalid credentials' });
-        }
-
-        // You can generate a new token or session here if needed
-       const token = generateAuthToken(patient); // You need to implement this function
-
-       console.log("success");
-        return res.status(200).json({ patient, message: 'Login successful' });
-    } catch (error) {
-        console.error(error.message);
-        return res.status(500).json({ error: 'Internal Server Error' });
-    }
-}
 //login2
 
-export async function login (req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
-    const { email, password } = req.body;
- 
-   
-    try {
-        
-        console.log("try block");
-      const patient = await patientRepository.findOne({ where: { email } });
-  
-      if (patient == null) {
+export async function login(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
+  const { email, password } = req.body;
 
-        console.log("if block");
-        return res
-          .status(ResponseModels.NOT_FOUND.status)
-          .json({ message: ResponseModels.NOT_FOUND.message });
-      }
-  
-      const passwordMatch = await bcrypt.compare(password, patient.password);
-  
-      if (!passwordMatch) {
-        console.log("test pass ");
-        return res
-          .status(ResponseModels.UNAUTHORIZED.status)
-          .json({ message: ResponseModels.UNAUTHORIZED.message });
-      }
-  
-      const token = jwt.sign(
-        { userId: patient.id },
-        process.env.TOKEN_SECRET as string
-      );
-  
-      return res
-        .status(ResponseModels.SUCCESS.status)
-        .json({ message: ResponseModels.SUCCESS.message, token });
-    } catch (error) {
-      console.error("Error occurred during user login", error);
-      return res.status(500).json({
-        message: "An error occurred during user login"
-      });
+  try {
+    const patient = await patientRepository.findOne({ where: { email } });
+
+    if (!patient) {
+      return res.status(401).json({ error: 'Invalid credentials' });
     }
+
+    const isPasswordValid = await bcrypt.compare(password, patient.password);
+
+    if (!isPasswordValid) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+
+    // You can also store user information in the session here if necessary
+
+    return res.status(200).json({ message: 'Login successful', patient });
+  } catch (error) {
+    console.error(error.message);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
+}
 
-  //update
+  
 
-  // Update game
+  // Update patient
 export async function updatePatient (req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
     const id = req.params.id as unknown as number;
     const { name, adress, email, password, role, phone, cin, dateOfBirth } = req.body;
