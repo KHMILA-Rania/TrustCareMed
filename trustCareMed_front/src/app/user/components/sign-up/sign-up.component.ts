@@ -7,5 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
+  formData = {
+    name: '',
+    email: '',
+    phone: '',
+    cin: '',
+    matricule: '',
+    address: '',
+    dob: '',
+    specialty: '',
+    gender: ''
+  };
+
+  onSubmit() {
+    // Handle form submission logic here
+    console.log('Form submitted:', this.formData);
+  }
 
 }

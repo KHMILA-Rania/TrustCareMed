@@ -1,38 +1,44 @@
 <!-- sign-in.component.html -->
 <div class="sign-in-container">
     
-    <div class="sign-in-form">
+  <div class="sign-in-form">
 
-        <div class="col-md-8 col-lg-8 mx-auto text-center">
-            <div class="header-title">
-               <h1 class="wv-heading--title mb-2">
-                  Sign in
-               </h1>
-            </div>
-         </div>
-      <form>
-        <div class="form-group">
-          <label for="username">Email :</label>
-          <input type="text" id="email" name="email" placeholder="email" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="password">Password : </label>
-          <input type="password" id="password" name="password" placeholder="password" required>
-        </div>
-  
-        <div class="form-group">
-          <label for="userType">User type :</label>
-          <div>
-            <label><input type="radio" name="userType" value="doctor" placeholder="userType" required> Doctor</label>
+      <div class="col-md-8 col-lg-8 mx-auto text-center">
+          <div class="header-title">
+             <h1 class="wv-heading--title mb-2">
+                Sign in
+             </h1>
           </div>
-          <div>
-            <label><input type="radio" name="userType" value="client" placeholder="userType" required> Client</label>
-        </div>
-        </div>
-  
-        <button type="submit" (click)="signIn()">Connexion</button>
-      </form>
-    </div>
+       </div>
+    <form>
+      <div class="form-group">
+        <label for="username">Email :</label>
+        <input type="text" id="email" name="email" placeholder="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password : </label>
+        <input type="password" id="password" name="password" placeholder="password" required>
+      </div>
+
+      <div class="form-group">
+        <div class="bbbb">
+          <input type="radio" name="userType" value="client" placeholder="userType" required> <label>Client</label>
+        </div><br>
+        <div class="bbbb">
+          <input type="radio" name="userType" value="doctor" placeholder="userType" required><label> Doctor</label>
+        </div> 
+      </div>
+<br>
+      <button type="submit" (click)="signIn()">Connexion</button>
+    </form>
   </div>
-  
+</div>
+
+
+
+
+
+
+
+

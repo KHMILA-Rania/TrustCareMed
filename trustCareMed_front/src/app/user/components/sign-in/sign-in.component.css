@@ -66,10 +66,7 @@ body {
     border-color: #4caf50;
   }
   
-  /* Radio button styles */
-  input[type="radio"] {
-    margin-right: 5px;
-  }
+
   
   /* Button styles */
   button {
@@ -104,4 +101,8 @@ body {
       width: 80%;
     }
   }
-  
+  .bbbb{
+    display: flex;
+    flex-direction: row;
+    float: left;
+  }
