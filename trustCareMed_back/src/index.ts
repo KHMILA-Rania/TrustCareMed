@@ -1,19 +1,22 @@
 
 import dotenv from "dotenv";
 dotenv.config();
+const bcrypt = require("bcrypt"); // Import bcrypt for password hashing
 
 import  { Request, Response } from 'express';
 import "./db/data-source";
 import cors from "cors";
 import express from "express";
 import bodyParser from "body-parser";
+import { createPatient, deletePatient, login, updatePatient } from "./services/PatientService";
 import { createDoctor, deleteDoctor, findDoctor, getDoctors, updateDoctor } from "./services/doctorService";
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 const port=3000;
-app.use(express.json());
+app.use(express.json())
+
 
 //security config 
 app.use((req: any, res: any, next: any) => {
@@ -26,7 +29,15 @@ app.use((req: any, res: any, next: any) => {
     next();
   });
 
+// patient crude
+  app.post('/createPatient',createPatient);
+  app.post('/login',login);
+  app.put('/updatePatient',updatePatient);
+  app.post('/deletePatient' ,deletePatient);
 
+
+
+//doctor crud
 app.post('/createDoctor',createDoctor);
 app.get('/getDoctor',getDoctors);
 app.get('/findDoctor/:id',findDoctor);
@@ -37,3 +48,7 @@ app.delete('/deleteDoctor',deleteDoctor);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
+
+
+
+  
