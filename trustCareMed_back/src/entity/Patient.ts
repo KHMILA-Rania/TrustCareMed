@@ -11,9 +11,10 @@ class  Patient  {
     @Column()
     adress:string
     @Column()
-    email:string
+    email!:string
+
     @Column()
-    password:string
+    password!:string
    
     @Column()
     role:string

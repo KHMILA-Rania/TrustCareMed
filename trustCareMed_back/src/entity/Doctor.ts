@@ -14,8 +14,11 @@ class  Doctor  {
     adress:string
     @Column()
     email:string
+    @Column()
+    password:string
    
-    
+    @Column()
+    role:string
    
     @Column()
     phone:number
@@ -32,11 +35,7 @@ class  Doctor  {
    @Column()
    dateOfBirth:string
 
-   @Column()
-   role:string
-
-   @Column()
-   password:string
+ 
     
 }
 export default Doctor;
