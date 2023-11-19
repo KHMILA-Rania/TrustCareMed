@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Doctor } from 'src/app/interfaces/Doctor';
+import { DoctorService } from 'src/app/services/doctor-service.service';
 
 
 @Component({
@@ -7,21 +9,43 @@ import { Component } from '@angular/core';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  formData = {
+  formData: Doctor = {
+    
+    id :0,
     name: '',
     email: '',
-    phone: '',
+    phone: 0,
     cin: '',
     matricule: '',
-    address: '',
-    dob: '',
-    specialty: '',
-    gender: ''
+    password:'',
+   dateOfBirth:'',
+    speciality: '',
+    role: '',
+    adress:'',
+
   };
 
-  onSubmit() {
-    // Handle form submission logic here
-    console.log('Form submitted:', this.formData);
+  
+  constructor(private doctorService: DoctorService){}
+
+  onSubmit(){
+    this.doctorService.addDoctor(this.formData).subscribe(()=>{
+      this.formData={
+        id:0,
+        name: '',
+        email: '',
+        phone:0 ,
+        cin: '',
+        matricule: '',
+        password:'',
+       dateOfBirth:'',
+        speciality: '',
+        role: '',
+        adress:'',
+    
+      }
+
+    })
   }
 
 }

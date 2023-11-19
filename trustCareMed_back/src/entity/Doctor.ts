@@ -9,7 +9,8 @@ class  Doctor  {
    id!:number
     
    @Column()
-    name:string
+    name!:string
+    
     @Column()
     adress:string
     @Column()
