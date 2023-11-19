@@ -21,6 +21,11 @@ import { ContactUsComponent } from './doctor/components/contact-us/contact-us.co
 import { VosPatientsComponent } from './doctor/components/vos-patients/vos-patients.component';
 import { NavbarDoctorComponent } from './doctor/components/navbar-doctor/navbar-doctor.component';
 import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.component';
+import { NavbarPatientComponent } from './patient/components/navbar-patient/navbar-patient.component';
+import { HomeComponent } from './patient/components/home/home.component';
+import { ContactUSComponent } from './patient/components/contact-us/contact-us.component';
+import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
+import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
 
 
 
@@ -39,7 +44,12 @@ import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.c
     ContactUsComponent,
     VosPatientsComponent,
     NavbarDoctorComponent,
-    ChatdoctorComponent
+    ChatdoctorComponent,
+    NavbarPatientComponent,
+    HomeComponent,
+    ContactUSComponent,
+    OurDoctorsComponent,
+    ChatPatientComponent
   ],
   imports: [
     BrowserModule,
