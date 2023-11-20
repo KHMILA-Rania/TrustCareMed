@@ -8,6 +8,7 @@ import { HomePageComponent } from './user/components/home-page/home-page.compone
 import { SignUpComponent } from './user/components/sign-up/sign-up.component';
 import { NavbarComponent } from './user/components/navbar/navbar.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
