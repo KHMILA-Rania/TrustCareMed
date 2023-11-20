@@ -1,8 +1,8 @@
 
 
-<app-navbar></app-navbar>
-<app-navbar-doctor></app-navbar-doctor>
-<app-navbar-patient></app-navbar-patient>
+<app-navbar *ngIf="!isLoggedPatient"></app-navbar>
+
+<app-navbar-patient *ngIf="isLoggedPatient"></app-navbar-patient>
 
 <router-outlet></router-outlet>
 

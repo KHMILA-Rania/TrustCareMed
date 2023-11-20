@@ -8,11 +8,13 @@ import { SignInComponent } from './user/components/sign-in/sign-in.component';
 import { FooterComponent } from './user/components/footer/footer.component';
 import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
+import { HomeComponent } from './patient/components/home/home.component';
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
   {path:'home/contact', component:ContactComponent},
   {path:'home/sign-in', component:SignInComponent},
+  {path:'home/patient',component:HomeComponent}
  
  
   

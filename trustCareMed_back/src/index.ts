@@ -11,10 +11,11 @@ import bodyParser from "body-parser";
 import { createPatient, deletePatient, login, updatePatient } from "./services/PatientService";
 import { createDoctor, deleteDoctor, findDoctor, getDoctors, updateDoctor } from "./services/doctorService";
 const app = express();
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port=3000;
+const port=8888;
 app.use(express.json())
 
 

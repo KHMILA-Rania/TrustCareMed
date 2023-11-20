@@ -47,7 +47,7 @@ export function generateAuthToken(patient: Patient): string {
 
 export async function login(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
   const { email, password } = req.body;
-
+  
   try {
     const patient = await patientRepository.findOne({ where: { email } });
 
