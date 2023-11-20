@@ -1,22 +1,20 @@
-
-
 import  {Entity , PrimaryGeneratedColumn,Column} from 'typeorm';
 
-@Entity({name:"doctor"})
-class  Doctor  {
+@Entity({name:"patient"})
+class  Patient  {
     
  @PrimaryGeneratedColumn()
    id!:number
     
    @Column()
-    name!:string
-    
+    name:string
     @Column()
     adress:string
     @Column()
-    email:string
+    email!:string
+
     @Column()
-    password:string
+    password!:string
    
     @Column()
     role:string
@@ -24,19 +22,13 @@ class  Doctor  {
     @Column()
     phone:number
 
-    @Column()
-    speciality :string
    
-    @Column()
-    matricule:string
 
     @Column()
    cin:string
   
    @Column()
    dateOfBirth:string
-
- 
     
 }
-export default Doctor;
+export default Patient;
