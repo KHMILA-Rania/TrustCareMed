@@ -1,0 +1,9 @@
+<!-- chat-patient.component.html -->
+<div>
+    <div *ngFor="let msg of chatService.messages$ | async">
+      {{ msg }}
+    </div>
+    <input [(ngModel)]="message" placeholder="Type your message..." />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+  

@@ -43,21 +43,22 @@ export function generateAuthToken(patient: Patient): string {
     return token;
 }
 
-//login2
+//login
 
 export async function login(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
   const { email, password } = req.body;
-
+  
   try {
     const patient = await patientRepository.findOne({ where: { email } });
 
     if (!patient) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-
+    console.log("test pass1111");
     const isPasswordValid = await bcrypt.compare(password, patient.password);
 
     if (!isPasswordValid) {
+      console.log("test pass");
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 

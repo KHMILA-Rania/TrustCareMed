@@ -9,7 +9,8 @@ class  Doctor  {
    id!:number
     
    @Column()
-    name:string
+    name!:string
+    
     @Column()
     adress:string
     @Column()
@@ -34,6 +35,8 @@ class  Doctor  {
   
    @Column()
    dateOfBirth:string
+
+ 
     
 }
 export default Doctor;
