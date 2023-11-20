@@ -1,7 +1,7 @@
 
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background:  url('/../assets/useful/images/TrustCareMedical_logo.png') center/cover no-repeat fixed;
             margin: 0;
             padding: 20px;
         }

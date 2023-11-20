@@ -1,0 +1,13 @@
+.navv {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: 100;
+  }
+  img {
+    max-height: 65px; /* Ajustez la hauteur maximale selon vos besoins */
+    max-width: 200%; /* Assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
+    display: block; /* Pour gérer l'espace réservé sous l'image */
+    margin: auto; /* Centre l'image horizontalement */
+  }
