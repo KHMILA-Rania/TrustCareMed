@@ -9,12 +9,14 @@ import { FooterComponent } from './user/components/footer/footer.component';
 import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
 import { HomeComponent } from './patient/components/home/home.component';
+import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
   {path:'home/contact', component:ContactComponent},
   {path:'home/sign-in', component:SignInComponent},
-  {path:'home/patient',component:HomeComponent}
+  {path:'home/patient',component:HomeComponent},
+  {path:'home/patient/doctors',component: OurDoctorsComponent}
  
  
   

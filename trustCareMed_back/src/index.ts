@@ -40,7 +40,7 @@ app.use((req: any, res: any, next: any) => {
 
 //doctor crud
 app.post('/createDoctor',createDoctor);
-app.get('/getDoctor',getDoctors);
+app.get('/getDoctors',getDoctors);
 app.get('/findDoctor/:id',findDoctor);
 app.post('/updateDoctor',updateDoctor);
 app.delete('/deleteDoctor',deleteDoctor);
