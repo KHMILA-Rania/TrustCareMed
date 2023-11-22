@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const port=8888;
+const port=3000;
 app.use(express.json())
 
 
@@ -34,7 +34,7 @@ app.use((req: any, res: any, next: any) => {
   app.post('/createPatient',createPatient);
   app.post('/login',login);
   app.put('/updatePatient',updatePatient);
-  app.post('/deletePatient' ,deletePatient);
+  app.delete('/deletePatient' ,deletePatient);
 
 
 
