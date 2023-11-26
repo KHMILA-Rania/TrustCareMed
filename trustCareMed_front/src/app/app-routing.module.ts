@@ -13,10 +13,12 @@ import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctor
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
+  { path: 'home/about', component :AboutComponent},
   {path:'home/contact', component:ContactComponent},
   {path:'home/sign-in', component:SignInComponent},
   {path:'home/patient',component:HomeComponent},
-  {path:'home/patient/doctors',component: OurDoctorsComponent}
+  {path:'home/patient/doctors',component: OurDoctorsComponent},
+  
  
  
   

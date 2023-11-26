@@ -9,7 +9,7 @@ import { Observable , catchError , of } from 'rxjs';
 })
 export class DoctorService {
 
-  baseUrl='http://localhost:3000/createDoctor';
+  baseUrl='http://localhost:8888/createDoctor';
   options={
     headers:new HttpHeaders({'content-Type':'application/json'})
   } 
@@ -21,7 +21,7 @@ export class DoctorService {
   addDoctor(doctor: Doctor): Observable<Doctor> {
 
     return this.http.post<Doctor>(
-      'http://localhost:3000/createDoctor',doctor,this.options);
+      'http://localhost:8888/createDoctor',doctor,this.options);
     
   }
 

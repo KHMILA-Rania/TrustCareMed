@@ -3,6 +3,7 @@
     background-color: #070707;
     color: #fff;
     padding: 40px 0;
+   
 }
 
 .logo {
@@ -23,8 +24,9 @@
 }
 
 .footer-section {
-    padding: 20px;
+    padding: 10px;
     text-align: center;
+    
 }
 
 .footer-section h3 {
@@ -54,6 +56,7 @@ a:hover {
 .social-icons {
     list-style: none;
     padding: 0;
+    
 }
 
 .social-icons li {

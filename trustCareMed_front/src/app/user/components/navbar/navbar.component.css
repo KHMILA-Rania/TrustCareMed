@@ -1,0 +1,49 @@
+.navbar {
+    background-color:none;
+    color: #fff;
+}
+
+.navbar-brand img {
+    height: 50px;
+    width: auto;
+}
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav .nav-link {
+    color: #fff;
+    padding: 0 20px;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ddd;
+}
+
+.quote_btn-container {
+    margin-left: 20px;
+}
+
+.quote_btn-container a, .quote_btn-container form {
+    color: #fff;
+    text-decoration: none;
+}
+
+.quote_btn-container a i, .quote_btn-container form button i {
+    margin-right: 5px;
+}
+
+.quote_btn-container a:hover, .quote_btn-container form:hover {
+    color: #ddd;
+}
+@media screen and (max-width: 768px) {
+    .navbar-nav {
+        flex-direction: column;
+    }
+
+    .quote_btn-container {
+        margin-left: 0;
+        margin-top: 20px;
+    }
+}
