@@ -9,6 +9,9 @@ import { AuthService } from './services/auth-service.service';// Import your aut
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
   isLoggedPatient = false;
 
   constructor(private authService: AuthService) {

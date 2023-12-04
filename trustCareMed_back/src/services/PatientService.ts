@@ -5,8 +5,9 @@ import bcrypt from "bcrypt";
 import jwt from 'jsonwebtoken';
 import ResponseModels from "../entity/ResponseModels";
 import  getRepository  from 'typeorm';
+import Doctor from "../entity/Doctor";
 
-
+const doctorRepository =DataSource.getRepository(Doctor);
 const patientRepository=DataSource.getRepository(Patient);
 
 //create
@@ -46,26 +47,41 @@ export function generateAuthToken(patient: Patient): string {
 //login
 
 export async function login(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
-  const { email, password } = req.body;
+  const { email, password,role } = req.body;
   
   try {
-    const patient = await patientRepository.findOne({ where: { email } });
-
-    if (!patient) {
+    let user;
+   
+    const doctor = await doctorRepository.findOne({ where: {email } });
+if(role === 'patient'){
+  user=await patientRepository.findOne({ where: {email} });
+ } else if(role === 'doctor'){
+  user=await doctorRepository.findOne({ where: {email} });}
+  
+  
+  if (! user ) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
     console.log("test pass1111");
-    const isPasswordValid = await bcrypt.compare(password, patient.password);
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+ 
 
     if (!isPasswordValid) {
       console.log("test pass");
       return res.status(401).json({ error: 'Invalid credentials' });
     }
 
+
+    return res.status(200).json({ message: 'Login successful', user});
+  
+    
+      
+    
+
     // You can also store user information in the session here if necessary
 
-    return res.status(200).json({ message: 'Login successful', patient });
-  } catch (error) {
+    
+}catch (error) {
     console.error(error.message);
     return res.status(500).json({ error: 'Internal Server Error' });
   }
@@ -104,7 +120,7 @@ export async function updatePatient (req: Request, res: Response): Promise<Respo
     }
   };
   
-  // Delete game
+  // Delete Patient
 export async function deletePatient (req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
     const id = req.params.id as unknown as number;
     try {

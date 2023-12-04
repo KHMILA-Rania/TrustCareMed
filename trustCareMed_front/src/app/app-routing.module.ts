@@ -16,8 +16,11 @@ const routes: Routes = [
   {path:'home/contact', component:ContactComponent},
   {path:'home/sign-in', component:SignInComponent},
   {path:'home/patient',component:HomeComponent},
-  {path:'home/patient/doctors',component: OurDoctorsComponent}
+  {path:'home/patient/doctors',component: OurDoctorsComponent},
  
+  {path:'home/chat-patient',component:ChatPatientComponent},
+  {path:'home/chatdoctor',component:ChatdoctorComponent},
+
  
   
   

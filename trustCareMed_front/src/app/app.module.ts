@@ -26,6 +26,8 @@ import { HomeComponent } from './patient/components/home/home.component';
 import { ContactUSComponent } from './patient/components/contact-us/contact-us.component';
 import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
+import { ChatService } from './chat.service';
+
 
 
 
@@ -59,7 +61,7 @@ import { ChatPatientComponent } from './patient/components/chat-patient/chat-pat
     HttpClientModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -21,18 +21,19 @@ export class SignInComponent {
    
     this.loginForm=this.formBuilder.group({
       email:['',[Validators.required,Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      role:['',Validators.required]
     });
   }
 
   signIn() {
-    
     // Ajoutez votre logique de connexion ici
     if(this.loginForm.valid){
 
-      const {email, password}=this.loginForm.value;
-      console.log("just befor connecting");
-      this.http.post('http://localhost:8888/login',{email,password}).subscribe({
+      const {email, password,role}=this.loginForm.value;
+      console.log("just before connecting");
+      console.log(role)
+      this.http.post('http://localhost:3000/login',{email,password,role}).subscribe({
         next: (response:any)=>{
           console.log("after starting");
           this.authService.updateLoginStatus(true);
