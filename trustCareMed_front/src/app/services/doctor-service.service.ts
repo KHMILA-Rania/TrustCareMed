@@ -28,11 +28,16 @@ export class DoctorService {
   //view 
   getDoctors():Observable<Doctor[]> {
 
-    return this.http.get<Doctor[]>('http://localhost:8888/getDoctors').pipe(catchError((err) => {
+    return this.http.get<Doctor[]>('http://localhost:3000/getDoctors').pipe(catchError((err) => {
       console.error('Error fetching tournaments:', err);
       return of([]);
     }))
     
+  }
+  getDoctor(id: number): Observable<Doctor> {
+    return this.http.get<Doctor>(
+      'http://localhost:3000/findDoctor/' + id
+    )
   }
  
 }

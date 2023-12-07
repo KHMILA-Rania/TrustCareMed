@@ -36,7 +36,7 @@ export class SignInComponent {
       this.http.post('http://localhost:3000/login',{email,password,role}).subscribe({
         next: (response:any)=>{
           console.log("after starting");
-          this.authService.updateLoginStatus(true);
+          this.authService.updateLoginStatus(true,false);
           console.log(response);
           console.log("success");
 

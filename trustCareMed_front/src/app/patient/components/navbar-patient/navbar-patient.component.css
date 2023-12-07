@@ -1,0 +1,9 @@
+.header_section .header_bottom .container-fluid{
+    background-image: linear-gradient(70deg, rgb(31, 147, 2), #17a2b8);
+}
+.navbar-brand {
+    border-radius: 60%
+}
+.navbar{
+    font-size: 25px;
+}

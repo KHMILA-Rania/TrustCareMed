@@ -17,31 +17,29 @@
 <div class="row m-0">
     <div class="col-lg-2 col-md-6 col-sm-9 p-5 h-10" *ngFor="let doctor of doctors">
         <div class="  card  rounded-5 ">
-            <img class="card-img mb-5 rounded-top"
-            src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.bpmed.com.au%2Fblog%2F61%2Fcan-a-doctor-ever-refuse-to-treat-a-patient&psig=AOvVaw3GnlrERIwFhnKuqeOg7rYu&ust=1700658170150000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJCV2cKT1YIDFQAAAAAdAAAAABAJ"  alt="Card image cap">
             <div class="card-content ms-5 ">
                 <p class="card-title " hidden>
                     {{doctor.id }}
                  
                 </p>
                 <p class="card-title">
-                    {{doctor.name}}
+                  Name: {{doctor.name}}
                  
                 </p>
                 <p class="card-title">
                  
-                     {{doctor.email}}
+                    Email: {{doctor.email}}
 
                 </p>
                 <p class="card-title">
-                  {{doctor.phone}}
+                 Phone: {{doctor.phone}}
                 </p>
                 <p class="card-title">
-                    adress :{{doctor.adress}}
+                    Speciality: {{doctor.speciality}}
                 </p>
             </div>
             <div class="card-action align-items-center">
-                <a class="btn btn-primary  " [routerLink]="['/home/patient/doctors',doctor.id]"  (click)="viewDoctor( doctor.id )">View details</a>
+                <a class="btn btn-light  " [routerLink]="['/home/patient/doctor-details',doctor.id]"  (click)="viewDoctor( doctor.id )">View details</a>
             </div>
         </div>
         

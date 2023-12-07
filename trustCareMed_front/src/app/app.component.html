@@ -1,11 +1,11 @@
 
 
-<app-navbar *ngIf="!isLoggedPatient"></app-navbar>
+<app-navbar *ngIf="!isLoggedPatient && !isLoggedDoctor"></app-navbar>
 
 
 <app-navbar-patient *ngIf="isLoggedPatient"></app-navbar-patient>
 
-<app-navbar-doctor></app-navbar-doctor>
+<app-navbar-doctor *ngIf="isLoggedDoctor"></app-navbar-doctor>
 
 <router-outlet></router-outlet>
 

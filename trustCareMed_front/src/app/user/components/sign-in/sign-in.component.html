@@ -28,11 +28,11 @@
 
 
                                 <div class="bbbb">
-                                  <input type="radio" formControlName="role" name="userType" value="patient" placeholder="userType" required> <label>Patient</label>
+                                  <input type="radio" formControlName="role" name="role" value="patient" placeholder="userType" required> <label>Patient</label>
                                 </div>
                                 <br>
                                 <div class="bbbb">
-                                    <input type="radio" name="userType" formControlName="role" value="doctor" placeholder="userType" required> <label>Doctor</label>
+                                    <input type="radio" name="role" formControlName="role" value="doctor" placeholder="userType" required> <label>Doctor</label>
                                   </div>
 
                                 <button type="submit"  (click)="signIn()" [disabled]="loginForm.invalid" class="btn btn-info btn-md">Login</button>
