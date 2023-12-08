@@ -7,7 +7,6 @@ const doctorRepository=DataSource.getRepository(Doctor);
 //create new doctoraccount
 export async function createDoctor(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined>{
 
-
   console.log("starting");
     const {name,adress,password,email,phone,speciality,matricule,cin,dateOfBirth,role} = req.body;
      

@@ -7,10 +7,10 @@ import Patient from "../entity/Patient";
 const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
-    port:1800,
+    port:3000,
     username: "postgres",
-    password: "frinky",
-    database: "typeorm",
+    password: "Dell2200",
+    database: "med",
     synchronize: true,
     logging: true,
     entities: [Doctor,Patient],
