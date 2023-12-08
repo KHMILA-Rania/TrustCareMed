@@ -1,13 +1,9 @@
-.navv {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    width: 100;
-  }
-  img {
-    max-height: 65px; /* Ajustez la hauteur maximale selon vos besoins */
-    max-width: 200%; /* Assurez-vous que l'image ne dépasse pas la largeur de son conteneur */
-    display: block; /* Pour gérer l'espace réservé sous l'image */
-    margin: auto; /* Centre l'image horizontalement */
-  }
+.header_section .header_bottom .container-fluid{
+    background-image: linear-gradient(70deg, rgb(31, 147, 2), #17a2b8);
+}
+.navbar-brand {
+    border-radius: 60%
+}
+.navbar{
+    font-size: 25px;
+}

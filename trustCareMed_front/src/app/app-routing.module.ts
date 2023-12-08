@@ -8,13 +8,24 @@ import { SignInComponent } from './user/components/sign-in/sign-in.component';
 import { FooterComponent } from './user/components/footer/footer.component';
 import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
+import { HomeComponent } from './patient/components/home/home.component';
+import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
+import { DoctorDetailsComponent } from './patient/components/doctor-details/doctor-details.component';
+
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
   {path:'home/contact', component:ContactComponent},
   {path:'home/sign-in', component:SignInComponent},
+  {path:'home/patient',component:HomeComponent},
+  {path:'home/patient/doctors',component: OurDoctorsComponent},
  
- 
+  {path:'home/chat-patient',component:ChatPatientComponent},
+  {path:'home/chatdoctor',
+  component:ChatdoctorComponent},
+
+  {path:'home/patient/doctor-details/:doctorId',
+  component:DoctorDetailsComponent},
   
   
 ];

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { HomePageComponent } from './user/components/home-page/home-page.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { FooterComponent } from './user/components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignUpComponent } from './user/components/sign-up/sign-up.component';
@@ -26,6 +26,9 @@ import { HomeComponent } from './patient/components/home/home.component';
 import { ContactUSComponent } from './patient/components/contact-us/contact-us.component';
 import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
+import { ChatService } from './chat.service';
+import { DoctorDetailsComponent } from './patient/components/doctor-details/doctor-details.component';
+
 
 
 
@@ -49,16 +52,18 @@ import { ChatPatientComponent } from './patient/components/chat-patient/chat-pat
     HomeComponent,
     ContactUSComponent,
     OurDoctorsComponent,
-    ChatPatientComponent
+    ChatPatientComponent,
+    DoctorDetailsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [ChatService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
