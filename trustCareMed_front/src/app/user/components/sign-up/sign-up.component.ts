@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Doctor } from 'src/app/interfaces/Doctor';
+import { Patient } from 'src/app/interfaces/Patient'; 
 import { DoctorService } from 'src/app/services/doctor-service.service';
+import { PatientServiceService } from 'src/app/services/patient-service.service'; 
 
 
 @Component({
@@ -9,7 +11,7 @@ import { DoctorService } from 'src/app/services/doctor-service.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  formData: Doctor = {
+  formData: Doctor |Patient = {
     
     id :0,
     name: '',
@@ -22,15 +24,28 @@ export class SignUpComponent {
     speciality: '',
     role: '',
     adress:'',
-
   };
 
   
-  constructor(private doctorService: DoctorService){}
+  constructor(private doctorService: DoctorService,
+              private patientService: PatientServiceService // Inject PatientService
+    ){}
 
   onSubmit(){
-    this.doctorService.addDoctor(this.formData).subscribe(()=>{
-      this.formData={
+
+    if (this.formData.role === 'doctor') {
+      this.doctorService.addDoctor(this.formData as Doctor).subscribe(() => {
+        this.resetFormData();
+      });
+    } else if (this.formData.role === 'patient') {
+      this.patientService.addPatient(this.formData as Patient).subscribe(() => {
+        this.resetFormData();
+      });
+    }
+  }
+
+  private resetFormData() {
+    this.formData={
         id:0,
         name: '',
         email: '',
@@ -45,7 +60,7 @@ export class SignUpComponent {
     
       }
 
-    })
+    
   }
 
 }
