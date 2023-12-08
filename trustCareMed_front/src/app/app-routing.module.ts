@@ -11,6 +11,7 @@ import { ChatPatientComponent } from './patient/components/chat-patient/chat-pat
 import { HomeComponent } from './patient/components/home/home.component';
 import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 const routes: Routes = [
+
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
   { path: 'home/about', component :AboutComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
  
   
   
+
 ];
 
 @NgModule({
