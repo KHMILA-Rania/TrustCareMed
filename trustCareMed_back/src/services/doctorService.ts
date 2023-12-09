@@ -1,27 +1,50 @@
 import { type Request, type Response } from "express";
 import Doctor from "../entity/Doctor";
 import DataSource from "../db/data-source";
+import bcrypt from "bcrypt";
+import jwt from 'jsonwebtoken';
 
 const doctorRepository=DataSource.getRepository(Doctor);
 
 //create new doctoraccount
-export async function createDoctor(req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined>{
 
 
-  console.log("starting");
-    const {name,adress,password,email,phone,speciality,matricule,cin,dateOfBirth,role} = req.body;
-     
-    try {
-      console.log("try black");
-        const doctor=doctorRepository.create({name,adress,password,email,phone,speciality,matricule,cin,dateOfBirth,role});
-        await doctorRepository.save(doctor);
-        return res.json({doctor,msg:"success"});
-    }
-catch(err) {
-console.error(err);
-return res.status(500).json({ error: "something went wrong !", status: 500, route: "/create" });
+
+
+export async function createDoctor (req: Request, res: Response): Promise<Response<any, Record<string, any>> | undefined> {
+  const {name,adress,password,email,phone,speciality,matricule,cin,dateOfBirth,role} = req.body;
+  
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds, you can adjust it based on your needs
+
+
+  try {
+    // Hash the password
+    const hashedPassword = await bcrypt.hash(password, 10); // 10 is the saltRounds, you can adjust it based on your needs
+
+
+    const doctor=doctorRepository.create({name,adress,password :hashedPassword,email,phone,speciality,matricule,cin,dateOfBirth,role});
+    
+
+    await doctorRepository.save(doctor);
+
+    return res.json({doctor, msg: "Created game successfully" });
+  } catch (err) {
+    console.error(err);
+    return res.status(500).json({ error: "something went wrong !", status: 500, route: "/create" });
+  }
 }
+
+
+
+const secretKey = 'raef';
+
+export function generateAuthToken(patient: Doctor): string {
+  const token = jwt.sign({ patientId: patient.id, email: patient.email }, secretKey, { expiresIn: '1h' });
+  return token;
 }
+
+
 
 
 //view doctors

@@ -34,6 +34,11 @@ export class DoctorService {
     }))
     
   }
+  getDoctor(id: number): Observable<Doctor> {
+    return this.http.get<Doctor>(
+      'http://localhost:3000/findDoctor/' + id
+    )
+  }
  
 
 }

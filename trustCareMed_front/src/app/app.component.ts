@@ -13,12 +13,17 @@ export class AppComponent {
     throw new Error('Method not implemented.');
   }
   isLoggedPatient = false;
+  isLoggedDoctor = false;
 
   constructor(private authService: AuthService) {
     // Subscribe to authentication service to update login status
     this.authService.isLoggedPatient.subscribe((status) => {
       console.log('Login Status Updated:', status);
       this.isLoggedPatient = status;
+    });
+    this.authService.isLoggedDoctor.subscribe((doctorStatus) => {
+      console.log('Doctor Login Status Updated:', doctorStatus);
+      this.isLoggedDoctor = doctorStatus;
     });
   }
 }

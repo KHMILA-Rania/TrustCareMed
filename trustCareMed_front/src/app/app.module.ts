@@ -27,6 +27,7 @@ import { ContactUSComponent } from './patient/components/contact-us/contact-us.c
 import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
 import { ChatService } from './chat.service';
+import { DoctorDetailsComponent } from './patient/components/doctor-details/doctor-details.component';
 
 
 
@@ -51,7 +52,8 @@ import { ChatService } from './chat.service';
     HomeComponent,
     ContactUSComponent,
     OurDoctorsComponent,
-    ChatPatientComponent
+    ChatPatientComponent,
+    DoctorDetailsComponent
   ],
   imports: [
     BrowserModule,

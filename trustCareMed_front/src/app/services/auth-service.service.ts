@@ -5,12 +5,16 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private isLoggedInSubject=new BehaviorSubject<boolean>(  false);
+  private isLoggedPatientSource=new BehaviorSubject<boolean>(  false);
 
-  isLoggedPatient=this.isLoggedInSubject.asObservable();
+  isLoggedPatient=this.isLoggedPatientSource.asObservable();
 
-  updateLoginStatus(status:boolean):void {
-    this.isLoggedInSubject.next(status);
+  private isLoggedDoctorSource = new BehaviorSubject<boolean>(false);
+  isLoggedDoctor = this.isLoggedDoctorSource.asObservable();
+
+  updateLoginStatus(patientStatus: boolean, doctorStatus: boolean) {
+    this.isLoggedPatientSource.next(patientStatus);
+    this.isLoggedDoctorSource.next(doctorStatus);
   }
  
 }

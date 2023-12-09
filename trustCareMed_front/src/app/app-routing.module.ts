@@ -10,6 +10,8 @@ import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.c
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
 import { HomeComponent } from './patient/components/home/home.component';
 import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
+import { DoctorDetailsComponent } from './patient/components/doctor-details/doctor-details.component';
+
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
