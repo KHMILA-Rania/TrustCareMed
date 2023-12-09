@@ -114,7 +114,7 @@ export async function deletePatient (req: Request, res: Response): Promise<Respo
         await patientRepository.remove(patient);
       }
   
-      return res.json({ message: "game deleted successfully!" });
+      return res.json({ message: "patient deleted successfully!" });
     } catch (err) {
       console.error(err);
       return res.status(500).json({ error: "something went wrong !" });

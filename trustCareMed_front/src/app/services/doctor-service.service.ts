@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Doctor } from '../interfaces/Doctor';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable , catchError , of } from 'rxjs';
 
  
 @Injectable({
@@ -16,11 +16,24 @@ export class DoctorService {
 
   constructor(private http:HttpClient ) { }
 
+
+  //adddd 
   addDoctor(doctor: Doctor): Observable<Doctor> {
 
     return this.http.post<Doctor>(
       'http://localhost:3000/createDoctor',doctor,this.options);
     
   }
+
+  //view 
+  getDoctors():Observable<Doctor[]> {
+
+    return this.http.get<Doctor[]>('http://localhost:3000/getDoctors').pipe(catchError((err) => {
+      console.error('Error fetching tournaments:', err);
+      return of([]);
+    }))
+    
+  }
  
+
 }

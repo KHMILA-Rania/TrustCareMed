@@ -34,13 +34,13 @@ app.use((req: any, res: any, next: any) => {
   app.post('/createPatient',createPatient);
   app.post('/login',login);
   app.put('/updatePatient',updatePatient);
-  app.delete('/deletePatient' ,deletePatient);
+  app.delete('/deletePatient/:id' ,deletePatient);
 
 
 
 //doctor crud
 app.post('/createDoctor',createDoctor);
-app.get('/getDoctor',getDoctors);
+app.get('/getDoctors',getDoctors);
 app.get('/findDoctor/:id',findDoctor);
 app.post('/updateDoctor',updateDoctor);
 app.delete('/deleteDoctor',deleteDoctor);

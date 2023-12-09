@@ -1,0 +1,28 @@
+.card-title {
+    font-size: 150%;
+  
+  
+    font-weight: bold;
+  
+  margin-bottom: 15px;
+  
+  }
+  
+  
+  a{
+    margin-left: 27%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+  }
+  @media screen and (max-width: 1500px ) {
+    a{
+      margin-left: 5%;
+    }
+  }
+  
+  
+  @media screen and (max-width: 991px) {
+    a{
+      margin-left: 25%;
+    }
+  }

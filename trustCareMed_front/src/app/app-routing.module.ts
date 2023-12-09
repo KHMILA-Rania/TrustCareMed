@@ -9,6 +9,7 @@ import { FooterComponent } from './user/components/footer/footer.component';
 import { ChatdoctorComponent } from './doctor/components/chatdoctor/chatdoctor.component';
 import { ChatPatientComponent } from './patient/components/chat-patient/chat-patient.component';
 import { HomeComponent } from './patient/components/home/home.component';
+import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
   { path: 'home/signup', component: SignUpComponent},
@@ -18,6 +19,8 @@ const routes: Routes = [
   {path:'home/chat-patient',component:ChatPatientComponent},
   {path:'home/chatdoctor',component:ChatdoctorComponent},
 
+  {path:'home/patient/doctors',component: OurDoctorsComponent}
+ 
  
   
   
