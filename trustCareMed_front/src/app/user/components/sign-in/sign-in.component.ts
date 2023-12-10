@@ -28,22 +28,27 @@ export class SignInComponent {
 
   signIn() {
     // Ajoutez votre logique de connexion ici
-    if(this.loginForm.valid){
+    if (this.loginForm.valid) {
+      const { email, password, role } = this.loginForm.value;
+      console.log("just before connecting");
+      this.http.post('http://localhost:3000/login', { email, password, role }).subscribe({
+        next: (response: any) => {
+          if (role === 'patient') {
+            this.authService.updateLoginStatus(true, false);
+            this.router.navigate(['home/patient']);
+          } else if (role === 'doctor') {
+            this.authService.updateLoginStatus(false, true);
+            this.router.navigate(['home/doctor']);
+          }
 
-      const {email, password}=this.loginForm.value;
-      console.log("just befor connecting");
-      this.http.post('http://localhost:3000/login',{email,password}).subscribe({
-        next: (response:any)=>{
-          console.log("after starting");
-          this.authService.updateLoginStatus(true,false);
-          console.log(response);
-          console.log("success");
 
-          this.router.navigate(['home/patient']);
-        },
+
+
+
+        
+        
       
-        error:(error) =>{
-          console.error(error);
+        
 
         },
         complete:()=>{

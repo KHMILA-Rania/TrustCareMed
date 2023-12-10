@@ -1,12 +1,19 @@
 
 
 <app-navbar *ngIf="!isLoggedPatient && !isLoggedDoctor"></app-navbar>
-
-
 <app-navbar-patient *ngIf="isLoggedPatient"></app-navbar-patient>
-
 <app-navbar-doctor *ngIf="isLoggedDoctor"></app-navbar-doctor>
 
+
 <router-outlet></router-outlet>
+
+
+
+
+
+
+
+
+
 
 <app-footer></app-footer>
