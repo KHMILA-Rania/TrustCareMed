@@ -23,9 +23,9 @@ const routes: Routes = [
   {path:'home/chatdoctor',component:ChatdoctorComponent},
   {path:'home/rendezvous',component:RendezvousComponent},
 
-  {path:'home/patient/doctors',component: OurDoctorsComponent}
+  {path:'home/patient/doctors',component: OurDoctorsComponent},
  
- 
+ {path:'home/rendezvous',component:RendezvousComponent}
   
   
 ];

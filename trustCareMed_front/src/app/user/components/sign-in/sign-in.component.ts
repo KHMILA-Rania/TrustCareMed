@@ -30,9 +30,9 @@ export class SignInComponent {
     // Ajoutez votre logique de connexion ici
     if(this.loginForm.valid){
 
-      const {email, password}=this.loginForm.value;
+      const {email, password,role}=this.loginForm.value;
       console.log("just befor connecting");
-      this.http.post('http://localhost:3000/login',{email,password}).subscribe({
+      this.http.post('http://localhost:3000/login',{email,password,role}).subscribe({
         next: (response:any)=>{
           console.log("after starting");
           this.authService.updateLoginStatus(true,false);

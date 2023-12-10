@@ -8,10 +8,10 @@ import { RendezVous } from "../entity/Rendezvous";
 const AppDataSource = new DataSource({
     type: "postgres",
     host: "localhost",
-    port:1800,
+    port:5432,
     username: "postgres",
-    password: "frinky",
-    database: "postgres",
+    password: "postgres",
+    database: "mydb",
     synchronize: true,
     logging: true,
     entities: [Doctor,Patient,RendezVous],
