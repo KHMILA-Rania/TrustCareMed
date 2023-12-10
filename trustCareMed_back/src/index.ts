@@ -10,6 +10,7 @@ import express from "express";
 import bodyParser from "body-parser";
 import { createPatient, deletePatient, login, updatePatient } from "./services/PatientService";
 import { createDoctor, deleteDoctor, findDoctor, getDoctors, updateDoctor } from "./services/doctorService";
+import { createRendezvous, deleteRendezvous, findRendezvous, getRendezvous, updateRendezvous } from "./services/rendezvousService";
 const app = express();
 const cors = require('cors');
 
@@ -60,6 +61,14 @@ app.get('/getDoctors',getDoctors);
 app.get('/findDoctor/:id',findDoctor);
 app.post('/updateDoctor',updateDoctor);
 app.delete('/deleteDoctor',deleteDoctor);
+
+
+//rendezvous crude
+app.post('/createRendezvous' , createRendezvous);
+app.get('/getRendezvous', getRendezvous);
+app.get('/findRendezvous/:id', findRendezvous);
+app.put('/updateRendezvous/:id',updateRendezvous);
+app.delete('/deleteRendezvous/:id',deleteRendezvous)
 
 
 app.listen(port, () => {

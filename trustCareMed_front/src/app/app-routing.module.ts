@@ -11,6 +11,7 @@ import { ChatPatientComponent } from './patient/components/chat-patient/chat-pat
 import { HomeComponent } from './patient/components/home/home.component';
 import { OurDoctorsComponent } from './patient/components/our-doctors/our-doctors.component';
 import { DoctorDetailsComponent } from './patient/components/doctor-details/doctor-details.component';
+import { RendezvousComponent } from './patient/components/rendezvous/rendezvous.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:'home/patient',component:HomeComponent},
   {path:'home/chat-patient',component:ChatPatientComponent},
   {path:'home/chatdoctor',component:ChatdoctorComponent},
+  {path:'home/rendezvous',component:RendezvousComponent},
 
   {path:'home/patient/doctors',component: OurDoctorsComponent}
  

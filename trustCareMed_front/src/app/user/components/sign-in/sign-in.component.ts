@@ -33,10 +33,6 @@ export class SignInComponent {
       const {email, password}=this.loginForm.value;
       console.log("just befor connecting");
       this.http.post('http://localhost:3000/login',{email,password}).subscribe({
-      const {email, password,role}=this.loginForm.value;
-      console.log("just before connecting");
-      console.log(role)
-      this.http.post('http://localhost:3000/login',{email,password,role}).subscribe({
         next: (response:any)=>{
           console.log("after starting");
           this.authService.updateLoginStatus(true,false);
